@@ -8,11 +8,41 @@ var yLocal = 70
 var pause = false
 var newFile
 var taskLoader 
-
+var taskHeight = 0
 
 func _ready():
 	newFile = get_node("/root/NewFile")
 	taskLoader = get_node("/root/Task")
+func _input(event):
+	if event.is_action_pressed("scrollUp"):
+		moveUp()
+
+	if event.is_action_pressed("scrollDown"):
+		moveDown()
+
+
+func checkItemPlacement(item):
+	item.visible = true
+	if item.position.y < 100:
+		item.visible = false
+		if item.position.y > 400:
+			item.visible = false
+
+func moveDown():
+	if (taskHeight < taskLoader.taskList.size()):
+		taskHeight +=1
+		for item in taskLoader.taskList:
+			item.position.y-=10
+			checkItemPlacement(item)
+func moveUp():
+	if (taskHeight > 0):
+		taskHeight -=1
+		for item in taskLoader.taskList:
+			item.position.y+=10
+			checkItemPlacement(item)
+
+
+
 
 func Load(arg):
 	newFile.mainName = arg

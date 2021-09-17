@@ -15,6 +15,13 @@ class premade:
 
 var camp = premade.new()
 
+func moveUp():
+	for items in saves:
+		items.position.y-=10
+
+func moveDown():
+	for items in saves:
+		items.position.y+=10
 func deleteList():
 	print("tring to delete")
 	var listof = newFile.listNames
@@ -41,11 +48,13 @@ func deleteList():
 			get_parent().clearBoard()
 			get_parent().Load(newFile.mainName)
 		counter+=1
-
+var campingWord = ["Tent","Tarps","Air-Matress","Bed Linens","Pillows"
+,"Clothes","Hygiene Supplies","Shoes/Sandals","Lanterns","Lighter/matches","Fire Starter",
+"Axe/Hatchet","Wood","Chairs","RatchetStraps/String"]
 func _ready():
 	camp.name = "Camping-List"
-	camp.add("Tent")
-	camp.add("Fire Starter")
+	for items in campingWord:
+		camp.add(items)
 	newFile = get_node("/root/NewFile")
 
 func destroy():
@@ -60,7 +69,15 @@ func submit():
 	var sendoutName = get_node("newList/data").text
 	get_parent().get_node("name").text = sendoutName
 	get_parent().clearBoard()
-	newFile.addName(sendoutName)
+	print("checking for dupe")
+	var matches = false
+	for item in newFile.listNames:
+		if item == sendoutName:
+			print(item)
+			matches = true
+		
+	if matches == false:
+		newFile.addName(sendoutName)
 	newFile.saveNames()
 	newFile.Save(get_parent().taskLoader.taskList)
 	
@@ -71,8 +88,15 @@ func submit():
 func submitPre(arg):
 	var sendoutName = arg
 	get_parent().get_node("name").text = sendoutName
-	
-	newFile.addName(sendoutName)
+	var matches = false
+	print("checking for dupe")
+	for item in newFile.listNames:
+		if item == sendoutName:
+			print(item)
+			matches = true
+		
+	if matches == false:
+		newFile.addName(sendoutName)
 	newFile.saveNames()
 	newFile.Save(get_parent().taskLoader.taskList)
 	get_parent().clearBoard()

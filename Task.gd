@@ -21,7 +21,7 @@ func _ready():
 
 func addItem(argHeader,argDate,argStatus):
 	var aitem = preload("res://Scenes/Item.tscn").instance()
-	get_node("/root/").add_child(aitem)
+	get_parent().get_node("/root").add_child(aitem)
 	aitem.setDate(argDate)
 	aitem.setHeader(argHeader)
 	aitem.setStatus(argStatus)

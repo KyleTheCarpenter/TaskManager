@@ -3,11 +3,11 @@
 [ext_resource path="res://Item.gd" type="Script" id=1]
 [ext_resource path="res://resources/texgyreadventor-regular.otf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 13
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 7
 font_data = ExtResource( 2 )
 
@@ -31,7 +31,7 @@ margin_left = 15.0
 margin_top = -1.0
 margin_right = 182.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "This is task 1 in its entierety "
 __meta__ = {
@@ -39,11 +39,11 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 427.0
+margin_left = 413.0
 margin_top = -1.0
-margin_right = 444.0
+margin_right = 430.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,7 +52,7 @@ __meta__ = {
 [node name="spacer" type="Line2D" parent="."]
 position = Vector2( -28.4825, -56.3665 )
 scale = Vector2( 1.39691, 1.39691 )
-points = PoolVector2Array( 23.6943, 54.6456, 339.892, 54.6456 )
+points = PoolVector2Array( 23.6943, 54.6456, 328.063, 53.9675 )
 width = 1.0
 default_color = Color( 0, 0, 0, 1 )
 joint_mode = 2
@@ -63,7 +63,7 @@ margin_left = 185.0
 margin_top = -1.0
 margin_right = 335.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "07/08/2012:930am"
 __meta__ = {
@@ -85,7 +85,7 @@ margin_left = -9.68596
 margin_top = -1.30798
 margin_right = 20.314
 margin_bottom = 25.692
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "1"
 align = 1
@@ -94,7 +94,7 @@ __meta__ = {
 }
 
 [node name="circle" type="Polygon2D" parent="."]
-position = Vector2( 205.422, -124.937 )
+position = Vector2( 191.422, -124.937 )
 rotation = 0.630064
 scale = Vector2( 0.689031, 0.259037 )
 color = Color( 0.376471, 0.752941, 0.203922, 1 )

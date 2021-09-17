@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://root.gd" type="Script" id=1]
 [ext_resource path="res://resources/texgyreadventor-regular.otf" type="DynamicFontData" id=2]
@@ -39,7 +39,7 @@ load_path = "res://.import/0001.png-8fc67e807ce8ae3e821f5ad78a17d1a6.stex"
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 14
+size = 28
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -47,18 +47,26 @@ size = 14
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 12
-font_data = ExtResource( 5 )
+size = 14
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 12
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 12
 font_data = ExtResource( 2 )
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="DynamicFont" id=11]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="StreamTexture" id=10]
 flags = 4
 load_path = "res://.import/b13.png-70f8b561cbe47daf9dbb6cbe861ea59c.stex"
 
@@ -152,11 +160,11 @@ __meta__ = {
 }
 
 [node name="name" type="Label" parent="."]
-margin_left = 139.0
-margin_top = 84.0
-margin_right = 278.0
-margin_bottom = 108.0
-custom_fonts/font = SubResource( 3 )
+margin_left = 106.0
+margin_top = 26.0
+margin_right = 443.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -180,7 +188,7 @@ margin_left = 17.739
 margin_top = 27.2441
 margin_right = 170.739
 margin_bottom = 49.2441
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.168627, 0.858824, 0.00392157, 1 )
 align = 1
 __meta__ = {
@@ -193,7 +201,7 @@ margin_left = 201.0
 margin_top = 26.9966
 margin_right = 356.0
 margin_bottom = 48.9966
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.168627, 0.858824, 0.00392157, 1 )
 align = 1
 __meta__ = {
@@ -209,7 +217,7 @@ margin_left = 469.0
 margin_top = 35.0
 margin_right = 596.0
 margin_bottom = 59.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -220,7 +228,7 @@ margin_left = 470.0
 margin_top = 65.0
 margin_right = 597.0
 margin_bottom = 89.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -231,7 +239,7 @@ margin_left = 469.0
 margin_top = 95.0
 margin_right = 596.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -242,7 +250,7 @@ margin_left = 469.0
 margin_top = 125.0
 margin_right = 596.0
 margin_bottom = 149.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -253,7 +261,7 @@ margin_left = 469.0
 margin_top = 155.0
 margin_right = 596.0
 margin_bottom = 179.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -264,7 +272,7 @@ margin_left = 469.0
 margin_top = 185.0
 margin_right = 596.0
 margin_bottom = 209.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -275,7 +283,7 @@ margin_left = 469.0
 margin_top = 215.0
 margin_right = 596.0
 margin_bottom = 239.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -286,7 +294,7 @@ margin_left = 470.0
 margin_top = 245.0
 margin_right = 597.0
 margin_bottom = 269.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "testerrrrrrrrrrrrr"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -327,7 +335,7 @@ margin_left = 12.2182
 margin_top = 13.4551
 margin_right = 91.2182
 margin_bottom = 73.4551
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "New List
 Saved Lists
@@ -403,7 +411,7 @@ margin_left = 12.2182
 margin_top = 13.4551
 margin_right = 91.2182
 margin_bottom = 73.4551
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Tasks
 Lists
@@ -468,7 +476,7 @@ margin_left = 474.0
 margin_top = 38.0
 margin_right = 592.0
 margin_bottom = 109.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "To add a new task
 click the Task Button 
@@ -482,7 +490,7 @@ margin_left = 474.0
 margin_top = 113.719
 margin_right = 592.0
 margin_bottom = 157.719
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Click the X button to
 delete/finish a task"
@@ -495,7 +503,7 @@ margin_left = 473.056
 margin_top = 168.464
 margin_right = 591.056
 margin_bottom = 212.464
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Clicking the task #
 will show it at the top"
@@ -508,7 +516,7 @@ margin_left = 474.944
 margin_top = 220.377
 margin_right = 592.944
 margin_bottom = 264.377
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Set the status of the
 task by clicking it"
@@ -517,13 +525,14 @@ __meta__ = {
 }
 
 [node name="list" type="Node2D" parent="Helper"]
+visible = false
 
 [node name="text" type="Label" parent="Helper/list"]
 margin_left = 474.0
 margin_top = 38.0
 margin_right = 592.0
 margin_bottom = 109.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Add a new List by
 clicking at the top
@@ -537,7 +546,7 @@ margin_left = 474.0
 margin_top = 113.719
 margin_right = 592.0
 margin_bottom = 157.719
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Load saved lists to
 the main stage"
@@ -550,7 +559,7 @@ margin_left = 473.056
 margin_top = 168.464
 margin_right = 591.056
 margin_bottom = 212.464
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Look at premade lists
 designed for general
@@ -559,26 +568,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="data" type="Label" parent="Helper/list"]
-margin_left = 472.59
-margin_top = 248.37
-margin_right = 594.59
-margin_bottom = 275.37
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "nope"
+[node name="deleteList" type="TextureButton" parent="Helper/list"]
+margin_left = 472.521
+margin_top = 263.039
+margin_right = 593.521
+margin_bottom = 303.039
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 23 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="deleteList" type="TextureButton" parent="Helper/list"]
-margin_left = 472.521
-margin_top = 273.742
-margin_right = 593.521
-margin_bottom = 313.742
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 23 )
+[node name="text4" type="Label" parent="Helper/list"]
+margin_left = 505.165
+margin_top = 264.79
+margin_right = 627.165
+margin_bottom = 324.79
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data" type="Label" parent="Helper/list"]
+margin_left = 478.536
+margin_top = 240.046
+margin_right = 600.536
+margin_bottom = 267.046
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "nope"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -591,7 +612,7 @@ margin_left = 474.0
 margin_top = 38.0
 margin_right = 592.0
 margin_bottom = 109.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Change presets
 that will be available
@@ -606,7 +627,7 @@ margin_left = 471.477
 margin_top = 129.658
 margin_right = 589.477
 margin_bottom = 210.658
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "normal sets it to the
 Description
@@ -684,7 +705,7 @@ margin_right = 592.365
 margin_bottom = 367.009
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 21 )
-texture_hover = SubResource( 8 )
+texture_hover = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -699,7 +720,27 @@ margin_right = 592.365
 margin_bottom = 368.009
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 21 )
-texture_hover = SubResource( 8 )
+texture_hover = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="List/savedList"]
+margin_left = 580.516
+margin_top = 36.8372
+margin_right = 599.516
+margin_bottom = 64.8372
+text = "^"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="List/savedList"]
+margin_left = 579.911
+margin_top = 295.735
+margin_right = 598.911
+margin_bottom = 323.735
+text = "v"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -725,7 +766,27 @@ margin_right = 592.365
 margin_bottom = 368.009
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 21 )
-texture_hover = SubResource( 8 )
+texture_hover = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 443.318
+margin_top = 109.0
+margin_right = 462.318
+margin_bottom = 137.0
+text = "^"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 442.713
+margin_top = 367.898
+margin_right = 461.713
+margin_bottom = 395.898
+text = "v"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -748,4 +809,8 @@ __meta__ = {
 [connection signal="pressed" from="List/newList/submit" to="List" method="submit"]
 [connection signal="pressed" from="List/newList/cancel" to="List" method="destroy"]
 [connection signal="pressed" from="List/savedList/cancel" to="List" method="destroy"]
+[connection signal="pressed" from="List/savedList/Button3" to="List" method="moveUp"]
+[connection signal="pressed" from="List/savedList/Button4" to="List" method="moveDown"]
 [connection signal="pressed" from="List/premadeList/cancel" to="List" method="destroy"]
+[connection signal="pressed" from="Button" to="." method="moveUp"]
+[connection signal="pressed" from="Button2" to="." method="moveDown"]

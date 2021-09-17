@@ -93,7 +93,6 @@ func Load():
 	LoadNames()
 	var new_file = File.new()
 	if not new_file.file_exists("res://"+mainName+".list"):
-		get_parent().get_node("root").taskLoader.addItem("add a task","or start a new list","ON")
 		return data
 	new_file.open("res://"+mainName+".list", File.READ)
 	data = new_file.get_as_text()
