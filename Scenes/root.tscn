@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://root.gd" type="Script" id=1]
 [ext_resource path="res://resources/texgyreadventor-regular.otf" type="DynamicFontData" id=2]
@@ -51,6 +51,10 @@ size = 12
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
 size = 12
 font_data = ExtResource( 2 )
 
@@ -555,11 +559,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="data" type="Label" parent="Helper/list"]
+margin_left = 472.59
+margin_top = 248.37
+margin_right = 594.59
+margin_bottom = 275.37
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "nope"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="deleteList" type="TextureButton" parent="Helper/list"]
 margin_left = 472.521
-margin_top = 271.222
+margin_top = 273.742
 margin_right = 593.521
-margin_bottom = 311.222
+margin_bottom = 313.742
 texture_normal = ExtResource( 25 )
 texture_pressed = ExtResource( 24 )
 texture_hover = ExtResource( 23 )

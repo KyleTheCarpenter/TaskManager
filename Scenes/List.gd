@@ -9,7 +9,6 @@ class premade:
 	var list = []
 
 	func add(arg):
-		
 		list.append(arg)
 		list.append("Pack")
 		list.append("IDLE")
@@ -18,6 +17,30 @@ var camp = premade.new()
 
 func deleteList():
 	print("tring to delete")
+	var listof = newFile.listNames
+	var oldname = newFile.mainName
+	var counter = 0
+	for items in listof:
+		print("["+str(items)+"]")
+		if items == oldname:
+			print("deleting" + oldname)
+			
+			listof.remove(counter)
+
+			newFile.listNames = listof
+			newFile.cNames(listof)
+			print (str(newFile.listNames.size()))
+			var dir = Directory.new()
+			dir.remove("res://"+oldname+".list")
+			
+			newFile.mainName = "List1"
+			newFile.saveStarter()
+			
+			
+			newFile.Load()
+			get_parent().clearBoard()
+			get_parent().Load(newFile.mainName)
+		counter+=1
 
 func _ready():
 	camp.name = "Camping-List"
@@ -36,11 +59,11 @@ func submit():
 	
 	var sendoutName = get_node("newList/data").text
 	get_parent().get_node("name").text = sendoutName
-	
+	get_parent().clearBoard()
 	newFile.addName(sendoutName)
 	newFile.saveNames()
 	newFile.Save(get_parent().taskLoader.taskList)
-	get_parent().clearBoard()
+	
 	get_parent().Load(sendoutName)
 
 	destroy()
@@ -76,6 +99,7 @@ func destroypreMades():
 
 func openSaves():
 	saves.clear()
+	newFile.LoadNames()
 	for item in newFile.listNames:
 		
 		if item != "" :
@@ -86,6 +110,7 @@ func openSaves():
 			add_child(savedL)
 			savedL.position.y += 30 * saves.size()
 			saves.append(savedL)
+			print("madeit")
 			
 			
 func destroySaves():

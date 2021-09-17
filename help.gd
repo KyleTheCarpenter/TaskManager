@@ -41,6 +41,7 @@ func helpList():
 	get_parent().get_node("Helper/task").visible = false
 	get_parent().get_node("Helper/list").visible = true
 	get_parent().get_node("Helper/presets").visible = false
+	get_parent().get_node("Helper/list/data").text = get_parent().newFile.mainName
 
 func helpPreset():
 	destroy()

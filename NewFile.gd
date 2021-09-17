@@ -134,7 +134,19 @@ func saveNames():
 	new_file.close()
 	
 	
-
+func cNames(arg):
+	
+	var nameMap = ""
+	if arg.size()!= 0:
+		for items in arg:
+			if items != "":
+				nameMap += items + "\n"
+		
+	var new_file = File.new()
+	new_file.open("res://Index.list",File.WRITE)
+	new_file.store_line(nameMap)
+	new_file.close()
+	
 func rootSave():
 	saveMap = ""
 

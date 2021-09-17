@@ -16,6 +16,7 @@ func pressedd():
 	var 		memStatus:  String = ""
 	var 		other = "Header"
 	
+
 	if type == "save":
 		get_parent().get_parent().clearBoard()
 		myName = get_node("text").text
