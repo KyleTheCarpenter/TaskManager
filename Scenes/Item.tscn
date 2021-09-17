@@ -1,0 +1,133 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Item.gd" type="Script" id=1]
+[ext_resource path="res://resources/texgyreadventor-regular.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 7
+font_data = ExtResource( 2 )
+
+[node name="Item" type="Node2D"]
+position = Vector2( 7.76881, 111.012 )
+script = ExtResource( 1 )
+
+[node name="fade" type="ColorRect" parent="."]
+visible = false
+margin_left = -5.0
+margin_top = -3.0
+margin_right = 448.0
+margin_bottom = 21.0
+color = Color( 0.227451, 0.227451, 0.227451, 0.92549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header" type="Label" parent="."]
+margin_left = 15.0
+margin_top = -1.0
+margin_right = 182.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "This is task 1 in its entierety "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 427.0
+margin_top = -1.0
+margin_right = 444.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 3 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer" type="Line2D" parent="."]
+position = Vector2( -28.4825, -56.3665 )
+scale = Vector2( 1.39691, 1.39691 )
+points = PoolVector2Array( 23.6943, 54.6456, 339.892, 54.6456 )
+width = 1.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 1
+
+[node name="date" type="Label" parent="."]
+margin_left = 185.0
+margin_top = -1.0
+margin_right = 335.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "07/08/2012:930am"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -4.8095
+margin_top = 1.02713
+margin_right = 14.1905
+margin_bottom = 21.0271
+color = Color( 0.227451, 0.227451, 0.227451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num" type="Label" parent="."]
+margin_left = -9.68596
+margin_top = -1.30798
+margin_right = 20.314
+margin_bottom = 25.692
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="circle" type="Polygon2D" parent="."]
+position = Vector2( 205.422, -124.937 )
+rotation = 0.630064
+scale = Vector2( 0.689031, 0.259037 )
+color = Color( 0.376471, 0.752941, 0.203922, 1 )
+polygon = PoolVector2Array( 342.455, -68.4335, 337.967, -61.9955, 334.713, -48.8772, 335.386, -20.8501, 341.159, -4.25928, 347.721, -2.40176, 353.542, -6.49243, 357.635, -20.3829, 358.031, -38.4966, 354.404, -59.2952, 344.932, -71.8473 )
+
+[node name="texturebut" type="TextureButton" parent="."]
+margin_left = 19.0
+margin_right = 415.0
+margin_bottom = 17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_left = 15.0
+margin_top = 1.0
+margin_right = 382.0
+margin_bottom = 18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="focused" type="TextureButton" parent="."]
+margin_left = -3.77846
+margin_top = 2.508
+margin_right = 13.2215
+margin_bottom = 19.508
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="deleteSelf"]
+[connection signal="pressed" from="texturebut" to="." method="onButtonpressed"]
+[connection signal="mouse_entered" from="Control" to="." method="fadeIt"]
+[connection signal="mouse_exited" from="Control" to="." method="fadeOff"]
+[connection signal="pressed" from="focused" to="." method="focusedThis"]

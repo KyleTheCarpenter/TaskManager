@@ -1,0 +1,79 @@
+extends Node2D
+
+
+var 			id = 69420
+var				header = ""
+var 			date = ""
+var 			status  #ON OFF IDLE
+signal 			submit
+
+
+
+func onButtonpressed():
+	match status:
+		"ON":
+			status = "IDLE"
+			setStatus(status)
+		"IDLE":
+			status = "OFF"
+			setStatus(status)
+		"OFF": 
+			status = "ON"
+			setStatus(status)
+	
+
+func setStatus(arg):
+	status = arg
+	match arg:
+		"ON":
+			get_node("circle").modulate = Color(0,1,0,1)
+		
+		"OFF":
+			get_node("circle").modulate = Color(1,0,0,1)
+		
+		"IDLE":
+			get_node("circle").modulate = Color(1,0.5,0,1)
+		
+	emit_signal("submit")
+
+
+
+func fadeIt():
+	get_node("fade").visible = true
+
+
+func fadeOff():
+	get_node("fade").visible = false
+
+
+func setDate(argS):
+	if (argS != "" || argS != " "):
+		get_node("date").text = "due " +argS
+		date = argS
+
+	if (argS == ""):
+		get_node("date").text = " "
+		date = " "
+
+
+func setNum(argS):
+	id = int(argS)
+	get_node("num").text = argS
+
+
+func deleteSelf():
+	var checkmark = preload("res://Scenes/Fin.tscn").instance()
+	get_parent().add_child(checkmark)
+	get_parent().move_child(checkmark,90)
+	checkmark.position = position
+	checkmark.position.x+=300
+	get_parent().get_node("root").removeItem(id)
+	print("removed ["+str(id)+"]="+header)
+	
+func destroy():
+	get_parent().remove_child(self)
+
+func setHeader(argS):
+	get_node("header").text = argS
+	header = argS
+
