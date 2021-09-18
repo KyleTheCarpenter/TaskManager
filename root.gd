@@ -14,6 +14,9 @@ var Scrollpause = false
 func _ready():
 	newFile = get_node("/root/NewFile")
 	taskLoader = get_node("/root/Task")
+	if taskLoader.itemAdded == false:
+		get_node("help").helpList()
+
 func _input(event):
 	if Scrollpause == false:
 		if event.is_action_pressed("scrollUp"):
@@ -59,11 +62,17 @@ func Load(arg):
 	get_node("name").text = arg
 	newFile.saveStarter()
 	taskLoader.loadItem()
+	if taskLoader.itemAdded == false:
+		get_node("help").helpList()
+		print("no items")
 	
 	
 
 func initialLoad():
 	taskLoader.loadItem()
+
+	
+		
 	get_node("name").text = newFile.mainName
 
 
@@ -120,11 +129,13 @@ func handleKeyboard():
 func canceld():
 	Unpause()
 func resetBoard():
+	
 	for item in taskLoader.taskList:
 		get_parent().remove_child(item)
 	taskLoader.taskList.clear()
 	taskLoader.loadItem()	
-	
+	if taskLoader.itemAdded == false:
+		get_node("help").helpList()
 
 func informationInput():
 	Unpause()

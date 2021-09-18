@@ -11,7 +11,7 @@ var				yLocal = 140
 var				pause = false
 var				newFile
 var focused :task = task.new()
-
+var itemAdded = false
 func destroy():
 	get_parent().remove_child(self)
 func _ready():
@@ -43,7 +43,7 @@ func loadItem():
 	var 		memH: 		String = ""
 	var			memD: 		String = ""
 	var 		memStatus:  String = ""
-
+	itemAdded = false
 	newFile.Load()
 	jump = 0	
 
@@ -62,9 +62,11 @@ func loadItem():
 
 		if (memH != "" && memD != "" && memStatus != ""):
 			addItem(memH,memD,memStatus)
+			itemAdded = true
 			memH = ""
 			memD = ""
 			memStatus = ""
 		
-
+	
+		
 	
