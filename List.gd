@@ -65,15 +65,7 @@ func AddPremades(argName):
 	var tempList = []
 	var new_file = File.new()
 
-
-	
-
 	new_file.open("res://clipBoard/"+argName+".plist",File.READ)
-
-
-
-
-
 	tempList = new_file.get_as_text()
 	new_file.close()
 	tempList = tempList.split("\n")
@@ -115,12 +107,15 @@ func AddPremades(argName):
 
 
 func moveUp():
-	for items in saves:
-		items.position.y-=10
+	if get_node("savedList").visible == true || get_node("premadeList").visible == true:
+		for items in saves:
+			items.position.y-=10
 
 func moveDown():
-	for items in saves:
-		items.position.y+=10
+	if get_node("savedList").visible == true|| get_node("premadeList").visible == true:
+		for items in saves:
+			items.position.y+=10
+
 func deleteList():
 	if newFile.mainName == "Main List":
 		return
@@ -169,8 +164,10 @@ func _ready():
 	newFile = get_node("/root/NewFile")
 
 func destroy():
-	if get_node("savedList").visible == true:
+	if get_node("savedList").visible == true || get_node("premadeList").visible == true :
 		destroySaves()
+		
+		get_parent().pause = false
 	get_node("newList").visible = false
 	get_node("savedList").visible = false
 	get_node("premadeList").visible = false
@@ -178,8 +175,22 @@ func destroy():
 func _input(event):
 	if get_node("newList").visible == true:
 		if event.is_action_pressed("enter"):
-			submit()	
+			submit()
+	if get_node("savedList").visible == true || get_node("premadeList").visible == true :
+		if event.is_action_pressed("scrollUp"):
+				moveUp()
+		
+		if event.is_action_pressed("scrollDown"):
+				moveDown()	
+
+func _on_cancel_pressed():
+	
+	for items in get_parent().taskLoader.taskList:
+		items.visible = true
 func submit():
+	get_parent().pause = false
+	for items in get_parent().taskLoader.taskList:
+		items.visible = true
 	if get_node("newList/data").text != "":
 		var sendoutName = get_node("newList/data").text
 		get_parent().get_node("name").text = sendoutName

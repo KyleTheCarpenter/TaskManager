@@ -15,11 +15,12 @@ func _ready():
 	newFile = get_node("/root/NewFile")
 	taskLoader = get_node("/root/Task")
 func _input(event):
-	if event.is_action_pressed("scrollUp"):
-		moveUp()
+	if pause == false:
+		if event.is_action_pressed("scrollUp"):
+			moveUp()
 
-	if event.is_action_pressed("scrollDown"):
-		moveDown()
+		if event.is_action_pressed("scrollDown"):
+			moveDown()
 
 
 func checkItemPlacement(item):

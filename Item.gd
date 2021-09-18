@@ -40,11 +40,14 @@ func setStatus(arg):
 
 
 func fadeIt():
-	get_node("fade").visible = true
+	if get_parent().get_node("root").pause == false:
+		get_node("fade").visible = true
+		
 
 
 func fadeOff():
-	get_node("fade").visible = false
+	if get_parent().get_node("root").pause == false:
+		get_node("fade").visible = false
 
 
 func setDate(argS):
@@ -60,6 +63,8 @@ func setDate(argS):
 func setNum(argS):
 	id = int(argS)
 	get_node("num").text = argS
+
+
 
 
 func deleteSelf():

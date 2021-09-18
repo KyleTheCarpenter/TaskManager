@@ -16,11 +16,6 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "ON",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "IDLE",
@@ -29,6 +24,11 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "OFF",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "ON",
 "speed": 5.0
 } ]
 
@@ -120,7 +120,7 @@ scale = Vector2( 0.569235, 0.554013 )
 frames = SubResource( 3 )
 animation = "IDLE"
 
-[node name="texturebut" type="TextureButton" parent="."]
+[node name="but" type="TextureButton" parent="."]
 margin_left = 19.0
 margin_right = 415.0
 margin_bottom = 17.0
@@ -147,7 +147,7 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Button" to="." method="deleteSelf"]
-[connection signal="pressed" from="texturebut" to="." method="onButtonpressed"]
+[connection signal="pressed" from="but" to="." method="onButtonpressed"]
 [connection signal="mouse_entered" from="Control" to="." method="fadeIt"]
 [connection signal="mouse_exited" from="Control" to="." method="fadeOff"]
 [connection signal="pressed" from="focused" to="." method="focusedThis"]

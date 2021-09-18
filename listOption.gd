@@ -19,7 +19,10 @@ func destroy():
 #	pass
 
 func newList():
+	get_parent().pause = true
 	get_parent().get_node("List/newList/data").text = "" 
+	for items in get_parent().taskLoader.taskList:
+		items.visible = false
 	get_parent().get_node("List").destroySaves()
 	get_parent().get_node("Helper/task").visible = false
 	get_parent().get_node("Helper/list").visible = false
@@ -30,6 +33,7 @@ func newList():
 	destroy()
 
 func savedList():
+	get_parent().pause = true
 	get_parent().get_node("List").destroySaves()
 	get_parent().get_node("Helper/task").visible = false
 	get_parent().get_node("Helper/list").visible = false
@@ -42,6 +46,7 @@ func savedList():
 	destroy()
 
 func premadeList():
+	get_parent().pause = true
 	get_parent().get_node("List").destroySaves()
 	get_parent().get_node("Helper/task").visible = false
 	get_parent().get_node("Helper/list").visible = false

@@ -1,0 +1,278 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/logo.png" type="Texture" id=1]
+[ext_resource path="res://resources/arial.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+
+[sub_resource type="Animation" id=2]
+resource_name = "add"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("add:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("add:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("add:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 0 ), Vector2( 40, -24 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("add:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 77.9 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "del"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("del:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("del:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 0 ), Vector2( 32, -16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("del:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -313.0, -340.4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("del:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.06454, 1 ), Vector2( 1.63555, 1.55828 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "dupe"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("del:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("del:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 0 ), Vector2( 32, -16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("del:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -313.0, -340.4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("del:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.06454, 1 ), Vector2( 1.63555, 1.55828 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Label2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "pre"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("add:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1.5, 1.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("add:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[node name="Logo" type="AnimatedSprite"]
+position = Vector2( 48, 40 )
+frames = SubResource( 1 )
+
+[node name="add" type="Polygon2D" parent="."]
+visible = false
+position = Vector2( 32, 0 )
+scale = Vector2( 1.5, 1.5 )
+color = Color( 0.0705882, 0.690196, 0, 1 )
+offset = Vector2( -100, 0 )
+polygon = PoolVector2Array( 95.0145, -0.596802, 95.0145, 15.4032, 87.0145, 15.4032, 79.0145, 15.4032, 79.0145, 23.4032, 95.0145, 23.4032, 95.0145, 39.4032, 103.014, 39.4032, 103.014, 23.4032, 119.014, 23.4032, 119.014, 15.4032, 103.014, 15.4032, 103.014, -0.596802 )
+
+[node name="del" type="Polygon2D" parent="."]
+visible = false
+position = Vector2( 32, -16 )
+rotation = -5.9411
+scale = Vector2( 1.63555, 1.55828 )
+color = Color( 0.690196, 0, 0, 1 )
+offset = Vector2( -100, 0 )
+polygon = PoolVector2Array( 95.0145, -0.596802, 95.0145, 15.4032, 87.0145, 15.4032, 72.3252, 17.9473, 79.0145, 23.4032, 95.0145, 23.4032, 95.0145, 39.4032, 101.579, 45.2273, 103.014, 23.4032, 119.014, 23.4032, 125.432, 15.9731, 103.014, 15.4032, 103.447, -5.85083 )
+
+[node name="anime" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 6 )
+anims/add = SubResource( 2 )
+anims/del = SubResource( 3 )
+anims/dupe = SubResource( 7 )
+anims/pre = SubResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 16.0
+margin_top = -24.0
+margin_right = 198.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 4 )
+text = "PRELOAD SAVED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_left = 24.0
+margin_top = -24.0
+margin_right = 206.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 4 )
+text = "ALREADY EXISTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}

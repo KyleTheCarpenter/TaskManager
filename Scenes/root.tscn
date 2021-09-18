@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://root.gd" type="Script" id=1]
 [ext_resource path="res://resources/texgyreadventor-regular.otf" type="DynamicFontData" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://resources/topbar.png" type="Texture" id=7]
 [ext_resource path="res://resources/sidebar.png" type="Texture" id=8]
 [ext_resource path="res://resources/myname.png" type="Texture" id=9]
-[ext_resource path="res://resources/logo.png" type="Texture" id=10]
+[ext_resource path="res://Logo.tscn" type="PackedScene" id=10]
 [ext_resource path="res://resources/midbar.png" type="Texture" id=11]
 [ext_resource path="res://resources/bart.png" type="Texture" id=12]
 [ext_resource path="res://resources/submuit.png" type="Texture" id=13]
@@ -19,8 +19,7 @@
 [ext_resource path="res://help.gd" type="Script" id=17]
 [ext_resource path="res://resources/clockarrow.png" type="Texture" id=18]
 [ext_resource path="res://resources/clocker.png" type="Texture" id=19]
-[ext_resource path="res://resources/b11.png" type="Texture" id=20]
-[ext_resource path="res://resources/b13.png" type="Texture" id=21]
+[ext_resource path="res://resources/rawwe.png" type="Texture" id=20]
 [ext_resource path="res://List.gd" type="Script" id=22]
 [ext_resource path="res://resources/b01.png" type="Texture" id=23]
 [ext_resource path="res://resources/b03.png" type="Texture" id=24]
@@ -69,10 +68,6 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=11]
 size = 12
 font_data = ExtResource( 2 )
-
-[sub_resource type="StreamTexture" id=12]
-flags = 4
-load_path = "res://.import/b13.png-70f8b561cbe47daf9dbb6cbe861ea59c.stex"
 
 [node name="root" type="Node2D"]
 script = ExtResource( 1 )
@@ -137,12 +132,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Logo" type="Sprite" parent="."]
-position = Vector2( 49.3391, 40.5968 )
-texture = ExtResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Logo" parent="." instance=ExtResource( 10 )]
 
 [node name="Midbar" type="Sprite" parent="."]
 position = Vector2( 299.865, 282.447 )
@@ -685,42 +675,55 @@ texture = ExtResource( 18 )
 offset = Vector2( 0.004, -50 )
 
 [node name="List" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 22 )
 
 [node name="newList" type="Node2D" parent="List"]
-visible = false
+z_index = 100
+
+[node name="Control" type="Control" parent="List/newList"]
+margin_left = 107.0
+margin_top = 171.0
+margin_right = 302.0
+margin_bottom = 287.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rawwe" type="Sprite" parent="List/newList"]
+position = Vector2( 258.5, 329 )
+scale = Vector2( 0.685455, 1 )
+texture = ExtResource( 20 )
 
 [node name="Label2" type="Label" parent="List/newList"]
-margin_left = 470.886
-margin_top = 84.6364
-margin_right = 596.886
-margin_bottom = 243.636
+margin_left = 121.0
+margin_top = 171.0
+margin_right = 242.0
+margin_bottom = 195.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Enter your List
-Name and press
-submit. note you
-can access old
-lists from Saved 
-Lists Button"
+text = "Enter List Name"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="data" type="LineEdit" parent="List/newList"]
-margin_left = 474.0
-margin_top = 255.0
-margin_right = 594.0
-margin_bottom = 279.0
+anchor_left = 1.14876
+anchor_right = 1.14876
+margin_left = 139.0
+margin_top = 210.0
+margin_right = 260.0
+margin_bottom = 236.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="submit" type="TextureButton" parent="List/newList"]
-margin_left = 472.206
-margin_top = 302.327
-margin_right = 593.206
-margin_bottom = 328.327
+margin_left = 143.206
+margin_top = 251.327
+margin_right = 264.206
+margin_bottom = 277.327
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 13 )
@@ -728,14 +731,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cancel" type="TextureButton" parent="List/newList"]
-margin_left = 471.365
-margin_top = 341.009
-margin_right = 592.365
-margin_bottom = 367.009
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 21 )
-texture_hover = SubResource( 12 )
+[node name="cancel" type="Button" parent="List/newList"]
+margin_left = 277.0
+margin_top = 174.0
+margin_right = 301.0
+margin_bottom = 199.0
+text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -743,17 +744,12 @@ __meta__ = {
 [node name="savedList" type="Node2D" parent="List"]
 visible = false
 
-[node name="cancel" type="TextureButton" parent="List/savedList"]
-margin_left = 471.365
-margin_top = 342.009
-margin_right = 592.365
-margin_bottom = 368.009
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 21 )
-texture_hover = SubResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="cancel" type="Button" parent="List/savedList"]
+margin_left = 575.0
+margin_top = 1.0
+margin_right = 600.0
+margin_bottom = 26.0
+text = "X"
 
 [node name="Button3" type="Button" parent="List/savedList"]
 margin_left = 580.516
@@ -789,14 +785,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cancel" type="TextureButton" parent="List/premadeList"]
-margin_left = 471.365
-margin_top = 355.009
-margin_right = 592.365
-margin_bottom = 381.009
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 21 )
-texture_hover = SubResource( 12 )
+[node name="cancel" type="Button" parent="List/premadeList"]
+margin_left = 576.337
+margin_top = 2.0
+margin_right = 598.337
+margin_bottom = 24.0
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="List/premadeList"]
+margin_left = 580.516
+margin_top = 36.8372
+margin_right = 599.516
+margin_bottom = 64.8372
+text = "^"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="Button" parent="List/premadeList"]
+margin_left = 579.911
+margin_top = 295.735
+margin_right = 598.911
+margin_bottom = 323.735
+text = "v"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -835,15 +849,18 @@ __meta__ = {
 [connection signal="pressed" from="help/menu/helpTask" to="help" method="helpTask"]
 [connection signal="pressed" from="help/menu/helpList" to="help" method="helpList"]
 [connection signal="pressed" from="help/menu/helpPreset" to="help" method="helpPreset"]
-[connection signal="pressed" from="Helper/list/deleteList" to="help" method="hideMe"]
 [connection signal="pressed" from="Helper/list/deleteList" to="List" method="deleteList"]
-[connection signal="pressed" from="Helper/presets/makepreload" to="help" method="destroy"]
+[connection signal="pressed" from="Helper/list/deleteList" to="help" method="hideMe"]
 [connection signal="pressed" from="Helper/presets/makepreload" to="List" method="SaveAsPreload"]
+[connection signal="pressed" from="Helper/presets/makepreload" to="help" method="destroy"]
 [connection signal="pressed" from="List/newList/submit" to="List" method="submit"]
 [connection signal="pressed" from="List/newList/cancel" to="List" method="destroy"]
+[connection signal="pressed" from="List/newList/cancel" to="List" method="_on_cancel_pressed"]
 [connection signal="pressed" from="List/savedList/cancel" to="List" method="destroy"]
 [connection signal="pressed" from="List/savedList/Button3" to="List" method="moveUp"]
 [connection signal="pressed" from="List/savedList/Button4" to="List" method="moveDown"]
 [connection signal="pressed" from="List/premadeList/cancel" to="List" method="destroy"]
+[connection signal="pressed" from="List/premadeList/Button5" to="List" method="moveUp"]
+[connection signal="pressed" from="List/premadeList/Button6" to="List" method="moveDown"]
 [connection signal="pressed" from="up" to="." method="moveUp"]
 [connection signal="pressed" from="down" to="." method="moveDown"]
