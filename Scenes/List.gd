@@ -23,6 +23,8 @@ func moveDown():
 	for items in saves:
 		items.position.y+=10
 func deleteList():
+	if newFile.mainName == "Main List":
+		return
 	print("tring to delete")
 	var listof = newFile.listNames
 	var oldname = newFile.mainName
@@ -38,9 +40,13 @@ func deleteList():
 			newFile.cNames(listof)
 			print (str(newFile.listNames.size()))
 			var dir = Directory.new()
-			dir.remove("res://"+oldname+".list")
-			
-			newFile.mainName = "List1"
+			if oldname!= "Main List":
+				dir.remove("res://"+oldname+".list")
+			if (get_parent().taskLoader.taskList.size()== 0):
+
+				newFile.mainName = "Main List"
+				newFile.listNames = []
+			newFile.mainName = "Main List"
 			newFile.saveStarter()
 			
 			

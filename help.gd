@@ -51,3 +51,6 @@ func helpPreset():
 	get_parent().get_node("Helper/task").visible = false
 	get_parent().get_node("Helper/list").visible = false
 	get_parent().get_node("Helper/presets").visible = true
+
+func hideMe():
+	get_parent().get_node("Helper/list").visible = false

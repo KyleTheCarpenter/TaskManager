@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Item.gd" type="Script" id=1]
 [ext_resource path="res://resources/texgyreadventor-regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/activ.png" type="Texture" id=3]
+[ext_resource path="res://resources/stopped.png" type="Texture" id=4]
+[ext_resource path="res://resources/idel.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 13
@@ -11,6 +14,24 @@ font_data = ExtResource( 2 )
 size = 7
 font_data = ExtResource( 2 )
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "ON",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "IDLE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "OFF",
+"speed": 5.0
+} ]
+
 [node name="Item" type="Node2D"]
 position = Vector2( 7.76881, 111.012 )
 script = ExtResource( 1 )
@@ -19,7 +40,7 @@ script = ExtResource( 1 )
 visible = false
 margin_left = -5.0
 margin_top = -3.0
-margin_right = 448.0
+margin_right = 431.0
 margin_bottom = 21.0
 color = Color( 0.227451, 0.227451, 0.227451, 0.92549 )
 __meta__ = {
@@ -93,12 +114,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="circle" type="Polygon2D" parent="."]
-position = Vector2( 191.422, -124.937 )
-rotation = 0.630064
-scale = Vector2( 0.689031, 0.259037 )
-color = Color( 0.376471, 0.752941, 0.203922, 1 )
-polygon = PoolVector2Array( 342.455, -68.4335, 337.967, -61.9955, 334.713, -48.8772, 335.386, -20.8501, 341.159, -4.25928, 347.721, -2.40176, 353.542, -6.49243, 357.635, -20.3829, 358.031, -38.4966, 354.404, -59.2952, 344.932, -71.8473 )
+[node name="circle" type="AnimatedSprite" parent="."]
+position = Vector2( 391.61, 7.09139 )
+scale = Vector2( 0.569235, 0.554013 )
+frames = SubResource( 3 )
+animation = "IDLE"
 
 [node name="texturebut" type="TextureButton" parent="."]
 margin_left = 19.0

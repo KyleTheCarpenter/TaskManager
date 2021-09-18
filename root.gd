@@ -9,6 +9,7 @@ var pause = false
 var newFile
 var taskLoader 
 var taskHeight = 0
+var moved = false
 
 func _ready():
 	newFile = get_node("/root/NewFile")
@@ -29,22 +30,25 @@ func checkItemPlacement(item):
 			item.visible = false
 
 func moveDown():
-	if (taskHeight < taskLoader.taskList.size()):
-		taskHeight +=1
-		for item in taskLoader.taskList:
-			item.position.y-=10
-			checkItemPlacement(item)
+	
+	
+	taskHeight +=1
+	for item in taskLoader.taskList:
+		item.position.y-=20
+		checkItemPlacement(item)
 func moveUp():
+
 	if (taskHeight > 0):
 		taskHeight -=1
 		for item in taskLoader.taskList:
-			item.position.y+=10
+			item.position.y+=20
 			checkItemPlacement(item)
 
 
 
 
 func Load(arg):
+	taskHeight = 0
 	newFile.mainName = arg
 	get_node("name").text = arg
 	newFile.saveStarter()
@@ -92,6 +96,7 @@ func presetsPressed():
 		counter+=1
 
 func handleKeyboard():
+	
 	get_node("List").destroy()
 	get_node("List").destroySaves()
 	get_node("Preset").visible = false
@@ -115,11 +120,13 @@ func resetBoard():
 func informationInput():
 	isPopupAlive = false
 	taskLoader.addItem(pointerPopup.sHeader,pointerPopup.sDate,"OFF")
+	
 	get_parent().remove_child(pointerPopup)
 
 func addTask(argh,argd,argt):
 	newFile.saveNames()
 	taskLoader.addItem(argh,argd,argt)
+
 	newFile.Save(taskLoader.taskList)
 
 func removeItem(arg):

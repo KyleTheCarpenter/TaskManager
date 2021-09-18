@@ -313,10 +313,10 @@ __meta__ = {
 }
 
 [node name="list" type="TextureButton" parent="."]
-margin_left = 216.759
-margin_top = 4.14175
-margin_right = 321.759
-margin_bottom = 27.1418
+margin_left = 217.0
+margin_top = 2.0
+margin_right = 322.0
+margin_bottom = 23.0
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -324,10 +324,11 @@ __meta__ = {
 
 [node name="menu" type="Node2D" parent="list"]
 visible = false
+position = Vector2( 0, 5 )
 
 [node name="box" type="Sprite" parent="list/menu"]
-position = Vector2( 57.6147, 36.8465 )
-scale = Vector2( 1, 3.28619 )
+position = Vector2( 57.6147, 32.0843 )
+scale = Vector2( 1, 3.70029 )
 texture = ExtResource( 3 )
 
 [node name="labels" type="Label" parent="list/menu"]
@@ -345,18 +346,19 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="list/menu"]
-margin_left = -2.0
-margin_right = 118.0
-margin_bottom = 83.0
+margin_left = -16.0
+margin_top = -8.0
+margin_right = 128.0
+margin_bottom = 90.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="newList" type="TextureButton" parent="list/menu"]
-margin_left = 8.7818
-margin_top = 12.4364
-margin_right = 140.782
-margin_bottom = 32.4364
+margin_left = 9.0
+margin_top = 7.0
+margin_right = 141.0
+margin_bottom = 36.0
 rect_scale = Vector2( 0.75, 1 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 3 )
@@ -525,7 +527,6 @@ __meta__ = {
 }
 
 [node name="list" type="Node2D" parent="Helper"]
-visible = false
 
 [node name="text" type="Label" parent="Helper/list"]
 margin_left = 474.0
@@ -805,6 +806,7 @@ __meta__ = {
 [connection signal="pressed" from="help/menu/helpTask" to="help" method="helpTask"]
 [connection signal="pressed" from="help/menu/helpList" to="help" method="helpList"]
 [connection signal="pressed" from="help/menu/helpPreset" to="help" method="helpPreset"]
+[connection signal="pressed" from="Helper/list/deleteList" to="help" method="hideMe"]
 [connection signal="pressed" from="Helper/list/deleteList" to="List" method="deleteList"]
 [connection signal="pressed" from="List/newList/submit" to="List" method="submit"]
 [connection signal="pressed" from="List/newList/cancel" to="List" method="destroy"]

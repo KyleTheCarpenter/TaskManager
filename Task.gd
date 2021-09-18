@@ -18,7 +18,7 @@ func _ready():
 	newFile = get_node("/root/NewFile")
 	
 
-
+var jump = 0
 func addItem(argHeader,argDate,argStatus):
 	var aitem = preload("res://Scenes/Item.tscn").instance()
 	get_parent().get_node("/root").add_child(aitem)
@@ -27,9 +27,9 @@ func addItem(argHeader,argDate,argStatus):
 	aitem.setStatus(argStatus)
 	aitem.connect("submit",self,"saveColor")
 	taskList.append(aitem)
-	aitem.position.y = taskList.size() * 30+80
+	aitem.position.y = taskList[0].position.y +30* jump
 	aitem.setNum(str(taskList.size()))
-	
+	jump +=1
 	newFile.Save(taskList)
 	
 	
@@ -45,7 +45,7 @@ func loadItem():
 	var 		memStatus:  String = ""
 
 	newFile.Load()
-		
+	jump = 0	
 
 	for line in newFile.data:
 		

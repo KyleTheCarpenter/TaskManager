@@ -4,7 +4,7 @@ var saveMap
 var data = []
 var testOptions 
 var rootData 
-var mainName : String = "List1"
+var mainName : String = "Main List"
 var listNames = []
 
 
@@ -65,15 +65,18 @@ func loadStarter():
 
 func LoadNames():
 
-	
+	if mainName == "NO LIST SELECTEcD":
+		mainName ="Main List"
+		return
+
 	var new_file = File.new()
 	if not new_file.file_exists("res://Index.list"):
-		addName("List1")
-		mainName = "List1"
+		addName("Main List")
+		mainName = "Main List"
 		saveStarter()
-		saveNames()
-		get_parent().get_node("root").taskLoader.addItem("add a task","or start a new list","ON")
+		
 		Save(get_parent().get_node("root").taskLoader.taskList)
+		saveNames()
 		Load()
 		return
 	new_file.open("res://Index.list", File.READ)

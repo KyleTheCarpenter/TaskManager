@@ -26,13 +26,13 @@ func setStatus(arg):
 	status = arg
 	match arg:
 		"ON":
-			get_node("circle").modulate = Color(0,1,0,1)
+			get_node("circle").play("ON")
 		
 		"OFF":
-			get_node("circle").modulate = Color(1,0,0,1)
+			get_node("circle").play("OFF")
 		
 		"IDLE":
-			get_node("circle").modulate = Color(1,0.5,0,1)
+			get_node("circle").play("IDLE")
 		
 	emit_signal("submit")
 
