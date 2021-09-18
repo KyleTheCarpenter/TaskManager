@@ -19,44 +19,61 @@ func destroy():
 #	pass
 
 func newList():
-	get_parent().pause = true
-	get_parent().get_node("List/newList/data").text = "" 
-	for items in get_parent().taskLoader.taskList:
-		items.visible = false
-	get_parent().get_node("List").destroySaves()
-	get_parent().get_node("Helper/task").visible = false
-	get_parent().get_node("Helper/list").visible = false
-	get_parent().get_node("Helper/presets").visible = false
-	get_parent().get_node("Preset").visible = false
-	get_parent().get_node("List").destroy()
-	get_parent().get_node("List/newList").visible = true
-	destroy()
+	if get_parent().pause == false:
+		get_parent().get_node("List/newList/data").text = "" 
+		for items in get_parent().taskLoader.taskList:
+			items.visible = false
+		get_parent().get_node("name").visible = false
+		get_parent().get_node("up").visible = false
+		get_parent().get_node("down").visible = false
+		get_parent().Scrollpause = true
+		get_parent().get_node("List").destroySaves()
+		get_parent().get_node("Helper/task").visible = false
+		get_parent().get_node("Helper/list").visible = false
+		get_parent().get_node("Helper/presets").visible = false
+		get_parent().get_node("Preset").visible = false
+		get_parent().get_node("List").destroy()
+		get_parent().get_node("List/newList").visible = true
+		destroy()
 
 func savedList():
-	get_parent().pause = true
-	get_parent().get_node("List").destroySaves()
-	get_parent().get_node("Helper/task").visible = false
-	get_parent().get_node("Helper/list").visible = false
-	get_parent().get_node("Helper/presets").visible = false
-	get_parent().get_node("Preset").visible = false
-	get_parent().get_node("List").destroy()
-	get_parent().get_node("List/savedList").visible = true 
-	get_parent().get_node("List").openSaves()
+	if get_parent().pause == false:
+		for items in get_parent().taskLoader.taskList:
+			items.visible = false
+		get_parent().Scrollpause = true
+		get_parent().get_node("name").visible = false
+		get_parent().get_node("up").visible = false
+		get_parent().get_node("down").visible = false
+		get_parent().get_node("List").destroySaves()
+		get_parent().get_node("Helper/task").visible = false
+		get_parent().get_node("Helper/list").visible = false
+		get_parent().get_node("Helper/presets").visible = false
+		get_parent().get_node("Preset").visible = false
+		get_parent().get_node("List").destroy()
+		get_parent().get_node("List/savedList").visible = true 
+		get_parent().get_node("List").openSaves()
 
-	destroy()
+		destroy()
 
 func premadeList():
-	get_parent().pause = true
-	get_parent().get_node("List").destroySaves()
-	get_parent().get_node("Helper/task").visible = false
-	get_parent().get_node("Helper/list").visible = false
-	get_parent().get_node("Helper/presets").visible = false
-	get_parent().get_node("Preset").visible = false
-	get_parent().get_node("List").destroy()
-	get_parent().get_node("List/premadeList").visible = true
-	get_parent().get_node("List").openPremades()
-	destroy()
+	if get_parent().pause == false:
+		for items in get_parent().taskLoader.taskList:
+			items.visible = false
+		get_parent().Scrollpause = true
+		get_parent().get_node("List").destroySaves()
+		get_parent().get_node("name").visible = false
+		get_parent().get_node("up").visible = false
+		get_parent().get_node("down").visible = false
+		get_parent().get_node("Helper/task").visible = false
+		get_parent().get_node("Helper/list").visible = false
+		get_parent().get_node("Helper/presets").visible = false
+		get_parent().get_node("Preset").visible = false
+		get_parent().get_node("List").destroy()
+		get_parent().get_node("List/premadeList").visible = true
+		get_parent().get_node("List").openPremades()
+		destroy()
 
 func mouseEntered():
-	get_node("menu").visible = true
-	get_node("menu/Control").visible = true
+	if get_parent().pause == false:
+		get_node("menu").visible = true
+		get_node("menu/Control").visible = true

@@ -10,19 +10,24 @@ var newFile
 var taskLoader 
 var taskHeight = 0
 var moved = false
-
+var Scrollpause = false
 func _ready():
 	newFile = get_node("/root/NewFile")
 	taskLoader = get_node("/root/Task")
 func _input(event):
-	if pause == false:
+	if Scrollpause == false:
 		if event.is_action_pressed("scrollUp"):
 			moveUp()
 
 		if event.is_action_pressed("scrollDown"):
 			moveDown()
 
-
+func Unpause():
+	get_node("name").visible = true
+	get_node("up").visible = true
+	get_node("down").visible = true
+	Scrollpause = false
+	pause = false
 func checkItemPlacement(item):
 	item.visible = true
 	if item.position.y < 100:
@@ -81,36 +86,39 @@ func submitPresets():
 	newFile.rootSave()
 
 func presetsPressed():
-	
-	get_node("List").destroy()
-	get_node("List").destroySaves()
-	get_node("Helper/task").visible =false
-	get_node("Helper/list").visible = false
-	get_node("Helper/presets").visible = false
-	if(pause):
-		pointerPopup.exitOut()
+	if Scrollpause == false:
+		Unpause()
 
-	get_node("Preset").visible = true
-	var counter = 1
-	for item in newFile.headerOptions:
-		get_node("Preset/LineEdit"+str(counter)).text = item
-		counter+=1
+		get_node("List").destroy()
+		get_node("List").destroySaves()
+		get_node("Helper/task").visible =false
+		get_node("Helper/list").visible = false
+		get_node("Helper/presets").visible = false
+
+
+		get_node("Preset").visible = true
+		var counter = 1
+		for item in newFile.headerOptions:
+			get_node("Preset/LineEdit"+str(counter)).text = item
+			counter+=1
 
 func handleKeyboard():
-	
-	get_node("List").destroy()
-	get_node("List").destroySaves()
-	get_node("Preset").visible = false
-	get_node("Helper/task").visible =false
-	get_node("Helper/list").visible = false
-	get_node("Helper/presets").visible = false
-	pause = true
-	var newPopUp = preload("res://Scenes/popUp.tscn").instance()
-	pointerPopup = newPopUp
-	newPopUp.connect("submit", self, "informationInput")
-	get_parent().add_child(newPopUp)
-	
-
+	if Scrollpause == false:
+		get_node("List").destroy()
+		get_node("List").destroySaves()
+		get_node("Preset").visible = false
+		get_node("Helper/task").visible =false
+		get_node("Helper/list").visible = false
+		get_node("Helper/presets").visible = false
+		pause = true
+		var newPopUp = preload("res://Scenes/popUp.tscn").instance()
+		pointerPopup = newPopUp
+		newPopUp.connect("submit", self, "informationInput")
+		newPopUp.connect("cancel", self, "canceld")
+		get_parent().add_child(newPopUp)
+		
+func canceld():
+	Unpause()
 func resetBoard():
 	for item in taskLoader.taskList:
 		get_parent().remove_child(item)
@@ -119,6 +127,7 @@ func resetBoard():
 	
 
 func informationInput():
+	Unpause()
 	isPopupAlive = false
 	get_node("Logo/anime").play("add")
 	taskLoader.addItem(pointerPopup.sHeader,pointerPopup.sDate,"OFF")

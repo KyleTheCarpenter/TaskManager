@@ -25,6 +25,7 @@ func mouseEntered():
 	get_node("menu/Control").visible = true
 
 func helpTask():
+	get_parent().Unpause()
 	destroy()
 	get_parent().get_node("List").destroySaves()
 	get_parent().get_node("List").destroy()
@@ -34,6 +35,7 @@ func helpTask():
 	get_parent().get_node("Helper/presets").visible = false
 
 func helpList():
+	get_parent().Unpause()
 	destroy()
 	get_parent().get_node("List").destroySaves()
 	get_parent().get_node("List").destroy()
@@ -44,6 +46,7 @@ func helpList():
 	get_parent().get_node("Helper/list/data").text = get_parent().newFile.mainName
 
 func helpPreset():
+	get_parent().Unpause()
 	destroy()
 	get_parent().get_node("List").destroySaves()
 	get_parent().get_node("List").destroy()

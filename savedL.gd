@@ -11,6 +11,10 @@ func _ready():
 	newFile = get_node("/root/NewFile")
 	taskLoader = get_node("/root/Task")
 func pressedd():
+	get_parent().get_parent().Scrollpause = false
+	get_parent().get_parent().get_node("up").visible = true
+	get_parent().get_parent().get_node("down").visible = true
+	get_parent().get_parent().get_node("name").visible = true
 	var 		memH: 		String = ""
 	var			memD: 		String = ""
 	var 		memStatus:  String = ""

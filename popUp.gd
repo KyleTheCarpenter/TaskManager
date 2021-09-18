@@ -1,6 +1,7 @@
 extends Node2D
 
 signal submit
+signal cancel
 var			sDate	: String = ""
 var 		sHeader : String = ""
 var  	    dateOptions = ["Tomorrow","Morning","MidDay","Tonight","Whenever"]
@@ -68,8 +69,7 @@ func mouseEnteredDate():
 			
 func exitOut():
 	clearOptions()
-	get_parent().get_node("root").pause = false
 	get_parent().get_node("root").isPopupAlive= false
-	
+	emit_signal("cancel")
 	get_parent().remove_child(self)
 

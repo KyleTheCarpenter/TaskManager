@@ -48,7 +48,6 @@ func SaveAsPreload():
 func LoadPremadeList():
 	var new_file = File.new()
 
-
 	new_file.open("res://clipBoard/pIndex.ktc", File.READ)
 	var tempdata = new_file.get_as_text()
 	new_file.close()
@@ -163,7 +162,9 @@ func _ready():
 		camp.add(items,"pack")
 	newFile = get_node("/root/NewFile")
 
+	
 func destroy():
+	
 	if get_node("savedList").visible == true || get_node("premadeList").visible == true :
 		destroySaves()
 		
@@ -185,12 +186,25 @@ func _input(event):
 
 func _on_cancel_pressed():
 	
-	for items in get_parent().taskLoader.taskList:
-		items.visible = true
+	if get_parent().Scrollpause == true:
+		for items in get_parent().taskLoader.taskList:
+			items.visible = true
+			
+		get_parent().get_node("name").visible = true
+		get_parent().get_node("up").visible = true
+		get_parent().get_node("down").visible = true
+		get_parent().pause = false
+		get_parent().Scrollpause = false
+		
+
 func submit():
 	get_parent().pause = false
+	get_parent().Scrollpause = false
 	for items in get_parent().taskLoader.taskList:
 		items.visible = true
+	get_parent().get_node("name").visible = true
+	get_parent().get_node("up").visible = true
+	get_parent().get_node("down").visible = true
 	if get_node("newList/data").text != "":
 		var sendoutName = get_node("newList/data").text
 		get_parent().get_node("name").text = sendoutName
