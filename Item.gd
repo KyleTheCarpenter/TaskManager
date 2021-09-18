@@ -4,10 +4,11 @@ extends Node2D
 var 			id = 69420
 var				header = ""
 var 			date = ""
-var 			status  #ON OFF IDLE
+var 			status  = "ON"#ON OFF IDLE
 signal 			submit
 
-
+func _ready():
+	get_node("circle").play("ON")
 
 func onButtonpressed():
 	match status:

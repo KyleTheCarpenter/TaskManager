@@ -24,9 +24,9 @@ var camp = premade.new()
 func SaveAsPreload():
 	var ssaveMap = ""
 	for items in get_parent().taskLoader.taskList:
-		ssaveMap+=items.name+"\n"
+		ssaveMap+=items.header+"\n"
 		ssaveMap+=items.date+"\n"
-		ssaveMap+=items.name+"\n"
+		ssaveMap+=items.status+"\n"
 
 	var new_file = File.new()
 	new_file.open("res://clipBoard/"+newFile.mainName+".plist", File.WRITE)
