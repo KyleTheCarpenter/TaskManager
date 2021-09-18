@@ -40,6 +40,7 @@ func SaveAsPreload():
 		names+=item+"\n"
 	
 	new_file.open("res://clipBoard/pIndex.ktc", File.WRITE)
+	get_parent().get_node("Logo/anime").play("pre")
 	new_file.store_line(names)
 	new_file.close()
 
@@ -133,7 +134,7 @@ func deleteList():
 			print("deleting" + oldname)
 			
 			listof.remove(counter)
-
+			get_parent().get_node("Logo/anime").play("del")
 			newFile.listNames = listof
 			newFile.cNames(listof)
 			print (str(newFile.listNames.size()))
@@ -174,26 +175,33 @@ func destroy():
 	get_node("savedList").visible = false
 	get_node("premadeList").visible = false
 
+func _input(event):
+	if get_node("newList").visible == true:
+		if event.is_action_pressed("enter"):
+			submit()	
 func submit():
-	
-	var sendoutName = get_node("newList/data").text
-	get_parent().get_node("name").text = sendoutName
-	get_parent().clearBoard()
-	print("checking for dupe")
-	var matches = false
-	for item in newFile.listNames:
-		if item == sendoutName:
-			print(item)
-			matches = true
+	if get_node("newList/data").text != "":
+		var sendoutName = get_node("newList/data").text
+		get_parent().get_node("name").text = sendoutName
+		get_parent().clearBoard()
+		print("checking for dupe")
+		var matches = false
+		for item in newFile.listNames:
+			if item == sendoutName:
+				print(item)
+				matches = true
+			
+		if matches == false:
+			newFile.addName(sendoutName)
+			get_parent().get_node("Logo/anime").play("add")
+			newFile.saveNames()
+			newFile.Save(get_parent().taskLoader.taskList)
 		
-	if matches == false:
-		newFile.addName(sendoutName)
-	newFile.saveNames()
-	newFile.Save(get_parent().taskLoader.taskList)
-	
-	get_parent().Load(sendoutName)
+		if matches:
+			get_parent().get_node("Logo/anime").play("dupe")
+		get_parent().Load(sendoutName)
 
-	destroy()
+		destroy()
 
 func submitPre(arg):
 	var sendoutName = arg
@@ -207,6 +215,7 @@ func submitPre(arg):
 		
 	if matches == false:
 		newFile.addName(sendoutName)
+		get_parent().get_node("Logo/anime").play("add")
 	newFile.saveNames()
 	newFile.Save(get_parent().taskLoader.taskList)
 	get_parent().clearBoard()

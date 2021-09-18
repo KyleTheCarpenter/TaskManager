@@ -96,7 +96,9 @@ func Load():
 	LoadNames()
 	var new_file = File.new()
 	if not new_file.file_exists("res://clipBoard/"+mainName+".list"):
+		
 		return data
+
 	new_file.open("res://clipBoard/"+mainName+".list", File.READ)
 	data = new_file.get_as_text()
 	new_file.close()

@@ -65,7 +65,7 @@ func setNum(argS):
 func deleteSelf():
 	var checkmark = preload("res://Scenes/Fin.tscn").instance()
 	get_parent().add_child(checkmark)
-	checkmark.position = position
+	checkmark.position.y = 50
 	checkmark.position.x+=300
 	get_parent().get_node("root").removeItem(id)
 	print("removed ["+str(id)+"]="+header)

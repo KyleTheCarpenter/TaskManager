@@ -11,7 +11,10 @@ func _ready():
 	loadOptions()
 	get_parent().get_node("root").newFile.rootLoad()
 	
-	
+func _input(event):
+	if event.is_action_pressed("enter"):
+		if get_node("dataHeader").text != "":
+			submitPressed()	
 	
 
 func clearOptions():

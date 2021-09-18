@@ -119,6 +119,7 @@ func resetBoard():
 
 func informationInput():
 	isPopupAlive = false
+	get_node("Logo/anime").play("add")
 	taskLoader.addItem(pointerPopup.sHeader,pointerPopup.sDate,"OFF")
 	
 	get_parent().remove_child(pointerPopup)
