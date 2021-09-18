@@ -37,12 +37,13 @@ func SaveAsPreload():
 	preNames.append(newFile.mainName)
 	var names = ""
 	for item in preNames:
-		names+=item+"\n"
-	
-	new_file.open("res://clipBoard/pIndex.ktc", File.WRITE)
+		if item != "":
+			names+=item+"\n"
+	var new_file2 = File.new()
+	new_file2.open("res://clipBoard/pIndex.ktc", File.WRITE)
+	new_file2.store_line(names)
+	new_file2.close()
 	get_parent().get_node("Logo/anime").play("pre")
-	new_file.store_line(names)
-	new_file.close()
 
 
 func LoadPremadeList():
@@ -249,8 +250,9 @@ func submitPre(arg):
 
 func openPremades():
 	premadeList.clear() 
-	
+	LoadPremadeList()
 	premadeList.append(camp)
+	premades.clear()
 	for item in preNames:
 
 		AddPremades(item)
@@ -268,7 +270,7 @@ func openPremades():
 			saves.append(savedL)
 
 func destroypreMades():
-
+	get_parent().Unpause()
 	destroySaves()
 
 func openSaves():
