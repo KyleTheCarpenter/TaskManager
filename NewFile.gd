@@ -26,7 +26,7 @@ func _ready():
 func rootLoad():
 	headerOptions.clear()
 	var new_file = File.new()
-	if not new_file.file_exists("res://root.list"):
+	if not new_file.file_exists("res://clipBoard/root.list"):
 		headerOptions.append("Groceries")
 		headerOptions.append("Laundry")
 		headerOptions.append("Debug")
@@ -39,7 +39,7 @@ func rootLoad():
 		
 		return
 	
-	new_file.open("res://root.list",File.READ)
+	new_file.open("res://clipBoard/root.list",File.READ)
 	
 	headerOptions.append(new_file.get_line())
 	headerOptions.append(new_file.get_line())
@@ -55,9 +55,9 @@ func printNames():
 	pass
 func loadStarter():
 	var new_file = File.new()
-	if not new_file.file_exists("res://Index.list"):
+	if not new_file.file_exists("res://clipBoard/bin.ktc"):
 		return
-	new_file.open("res://bin.ktc", File.READ)
+	new_file.open("res://clipBoard/bin.ktc", File.READ)
 	mainName = new_file.get_line()
 	new_file.close()
 	
@@ -70,7 +70,7 @@ func LoadNames():
 		return
 
 	var new_file = File.new()
-	if not new_file.file_exists("res://Index.list"):
+	if not new_file.file_exists("res://clipBoard/Index.list"):
 		addName("Main List")
 		mainName = "Main List"
 		saveStarter()
@@ -79,7 +79,7 @@ func LoadNames():
 		saveNames()
 		Load()
 		return
-	new_file.open("res://Index.list", File.READ)
+	new_file.open("res://clipBoard/Index.list", File.READ)
 	listNames = new_file.get_as_text()
 	listNames = listNames.split("\n")
 
@@ -95,9 +95,9 @@ func setLoad(arg):
 func Load():
 	LoadNames()
 	var new_file = File.new()
-	if not new_file.file_exists("res://"+mainName+".list"):
+	if not new_file.file_exists("res://clipBoard/"+mainName+".list"):
 		return data
-	new_file.open("res://"+mainName+".list", File.READ)
+	new_file.open("res://clipBoard/"+mainName+".list", File.READ)
 	data = new_file.get_as_text()
 	new_file.close()
 	data = data.split("\n")
@@ -112,13 +112,13 @@ func Save(theTaskList):
 				ssaveMap+= items.status + "\n"
 
 	var new_file = File.new()
-	new_file.open("res://"+mainName+".list", File.WRITE)
+	new_file.open("res://clipBoard/"+mainName+".list", File.WRITE)
 	new_file.store_line(ssaveMap)
 	new_file.close()
 
 func saveStarter():
 	var new_file = File.new()
-	new_file.open("res://bin.ktc", File.WRITE)
+	new_file.open("res://clipBoard/bin.ktc", File.WRITE)
 	new_file.store_line(mainName)
 	new_file.close()
 
@@ -131,7 +131,7 @@ func saveNames():
 				nameMap += items + "\n"
 		
 	var new_file = File.new()
-	new_file.open("res://Index.list",File.WRITE)
+	new_file.open("res://clipBoard/Index.list",File.WRITE)
 	new_file.store_line(nameMap)
 	new_file.close()
 	
@@ -145,7 +145,7 @@ func cNames(arg):
 				nameMap += items + "\n"
 		
 	var new_file = File.new()
-	new_file.open("res://Index.list",File.WRITE)
+	new_file.open("res://clipBoard/Index.list",File.WRITE)
 	new_file.store_line(nameMap)
 	new_file.close()
 	
@@ -155,7 +155,7 @@ func rootSave():
 	##setmap
 	savePresets()
 	var new_file = File.new()
-	new_file.open("res://root.list", File.WRITE)
+	new_file.open("res://clipBoard/root.list", File.WRITE)
 	new_file.store_line(saveMap)
 	new_file.close()
 
