@@ -20,7 +20,7 @@ class premade:
 		list.append("IDLE")
 
 
-var camp = premade.new()
+
 func SaveAsPreload():
 	var ssaveMap = ""
 	for items in get_parent().taskLoader.taskList:
@@ -63,6 +63,8 @@ func AddPremades(argName):
 	#load in data
 
 	var tempList = []
+	if argName == "":
+		return
 	var new_file = File.new()
 
 	new_file.open("res://clipBoard/"+argName+".plist",File.READ)
@@ -148,9 +150,7 @@ func deleteList():
 			get_parent().clearBoard()
 			get_parent().Load(newFile.mainName)
 		counter+=1
-var campingWord = ["Tent","Tarps","Air-Matress","Bed Linens","Pillows"
-,"Clothes","Hygiene Supplies","Shoes/Sandals","Lanterns","Lighter/matches","Fire Starter",
-"Axe/Hatchet","Wood","Chairs","RatchetStraps/String"]
+
 func _ready():
 	
 	var dir = Directory.new()
@@ -158,9 +158,7 @@ func _ready():
 	dir.make_dir(path)
 	LoadPremadeList()
 	
-	camp.name = "Camping-List"
-	for items in campingWord:
-		camp.add(items,"pack")
+	
 	newFile = get_node("/root/NewFile")
 
 	
@@ -176,8 +174,9 @@ func destroy():
 
 func _input(event):
 	if get_node("newList").visible == true:
-		if event.is_action_pressed("enter"):
-			submit()
+		if get_parent().isPopupAlive == true:
+			if event.is_action_pressed("enter"):
+				submit()
 	if get_node("savedList").visible == true || get_node("premadeList").visible == true :
 		if event.is_action_pressed("scrollUp"):
 				moveUp()
@@ -251,7 +250,6 @@ func submitPre(arg):
 func openPremades():
 	premadeList.clear() 
 	LoadPremadeList()
-	premadeList.append(camp)
 	premades.clear()
 	for item in preNames:
 

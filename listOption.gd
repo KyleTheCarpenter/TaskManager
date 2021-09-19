@@ -19,6 +19,7 @@ func destroy():
 #	pass
 
 func newList():
+	get_parent().Scrollpause = true
 	get_parent().get_node("List/premadeList/delete").visible = false
 	if get_parent().pause == false:
 		get_parent().get_node("List/newList/data").text = "" 
@@ -38,6 +39,7 @@ func newList():
 		destroy()
 
 func savedList():
+	get_parent().Scrollpause = true
 	get_parent().get_node("List/premadeList/delete").visible = false
 	if get_parent().pause == false:
 		for items in get_parent().taskLoader.taskList:
@@ -58,6 +60,7 @@ func savedList():
 		destroy()
 
 func premadeList():
+	get_parent().Scrollpause = true
 	get_parent().get_node("List/premadeList/delete").visible = false
 	if get_parent().pause == false:
 		for items in get_parent().taskLoader.taskList:
@@ -77,6 +80,7 @@ func premadeList():
 		destroy()
 
 func mouseEntered():
+	get_parent().killMenus = false
 	if get_parent().pause == false:
 		get_node("menu").visible = true
 		get_node("menu/Control").visible = true

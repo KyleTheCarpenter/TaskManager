@@ -39,6 +39,7 @@ func saveColor():
 
 	
 func loadItem():
+	get_parent().get_node("root/Helper/list").visible = false
 	var 		other:		String = "Header"
 	var 		memH: 		String = ""
 	var			memD: 		String = ""
@@ -61,6 +62,8 @@ func loadItem():
 				other = "Header"
 
 		if (memH != "" && memD != "" && memStatus != ""):
+			if (memD == "Enter the Time or date "):
+				line = "   "
 			addItem(memH,memD,memStatus)
 			itemAdded = true
 			memH = ""

@@ -25,6 +25,9 @@ func _input(event):
 		if event.is_action_pressed("scrollDown"):
 			moveDown()
 
+	
+				
+
 func Unpause():
 	get_node("name").visible = true
 	get_node("up").visible = true
@@ -71,7 +74,9 @@ func Load(arg):
 func initialLoad():
 	taskLoader.loadItem()
 
-	
+	if taskLoader.itemAdded == false:
+		get_node("help").helpList()
+		print("no items")
 		
 	get_node("name").text = newFile.mainName
 
@@ -159,8 +164,22 @@ func removeItem(arg):
 			newFile.Save(taskLoader.taskList)
 			resetBoard()
 		
+func killtMenus():
+	get_node("help").destroy()
+	get_node("listOption").destroy()
+	print("destroy")
 
+
+var mouspos
+var killMenus = false
 func _process(_delta):
+	mouspos = get_viewport().get_mouse_position()
+	if killMenus == false:
+		if mouspos.y > 100:
+			killMenus = true
+			killtMenus()
+			print("hi")
+
 	if (pause):
 		get_node("task").visible = false
 	elif !pause:

@@ -52,7 +52,7 @@ func fadeOff():
 
 func setDate(argS):
 	if (argS != "" || argS != " "):
-		get_node("date").text = "due " +argS
+		get_node("date").text = argS
 		date = argS
 
 	if (argS == ""):
