@@ -1,0 +1,64 @@
+
+*************       Saving Current List       *************
+
+
+*************       DEBUGGING STARTED       *************
+
+
+*************       Debugging Started       *************
+
+
+*************       Opening pIndex and saving to Array       *************
+
+
+*************       Saving Current List       *************
+
+
+*************       Clearing Items from boards       *************
+
+
+*************       Saving Starter List       *************
+
+
+*************       Saving Starter List       *************
+
+
+*************       (Task.gd)Loading TaskList (Called by root.gd)       *************
+
+
+*************       Saving Current List       *************
+
+
+*************       Adding Item (Excercise)       *************
+
+debug(1): [Excercise] :MidDay
+
+*************       Adding Item (Eat Food)       *************
+
+debug(2): [Eat Food] :Tonight
+
+*************       Saving Current List       *************
+
+
+*************       Clearing Items from boards       *************
+
+
+*************       Saving Starter List       *************
+
+
+*************       Saving Starter List       *************
+
+
+*************       (Task.gd)Loading TaskList (Called by root.gd)       *************
+
+
+*************       Saving Current List       *************
+
+
+*************       Adding Item (Excercise)       *************
+
+debug(3): [Excercise] :MidDay
+
+*************       Adding Item (Eat Food)       *************
+
+debug(4): [Eat Food] :Tonight
